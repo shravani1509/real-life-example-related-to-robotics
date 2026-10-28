@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+// Function 1: Logic to close the mechanical hand
+void close_gripper() {
+    printf("[MOTOR] Activating servo motors...\n");
+    printf("[GRIPPER] Fingers closed. Object secured!\n\n");
+}
+
+// Function 2: Logic to open the mechanical hand
+void open_gripper() {
+    printf("[MOTOR] Reversing servo motors...\n");
+    printf("[GRIPPER] Fingers opened. Object released!\n\n");
+}
+
+int main() {
+    printf("=== Starting Pickup Routine ===\n\n");
+    
+    // Call the functions to execute actions sequentially
+    close_gripper();
+    printf("...Robot moves package to destination...\n\n");
+    open_gripper();
+    
+    printf("=== Routine Finished ===");
+    return 0;
+}

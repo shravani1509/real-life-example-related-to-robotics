@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+    // Array storing distance readings (in cm) from Front, Back, Left, and Right sensors
+    int sensor_distances[4] = {120, 85, 8, 90}; 
+    
+    // For loop to check all 4 directions
+    for (int i = 0; i < 4; i++) {
+        printf("Sensor %d reading: %d cm\n", i, sensor_distances[i]);
+        
+        // If an obstacle is closer than 10 cm, trigger an alert
+        if (sensor_distances[i] < 10) {
+            printf("  -> [CRASH WARNING] Obstacle too close at sensor %d! Braking!\n", i);
+        }
+    }
+
+    return 0;
+}

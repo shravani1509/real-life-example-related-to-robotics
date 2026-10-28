@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    int estop_pressed = 0; // 0 means safe, 1 means Emergency Stop pressed
+    int cycle_count = 1;
+
+    // The robot keeps running WHILE the safety button is NOT pressed (0)
+    while (estop_pressed == 0) {
+        printf("Robot status: RUNNING. Performing assembly cycle %d...\n", cycle_count);
+        
+        // Simulate checking the button on the 3rd cycle
+        if (cycle_count == 3) {
+            printf("\n[ALERT] Human pressed the red E-STOP button!\n");
+            estop_pressed = 1; // Change state to trigger the stop
+        }
+        
+        cycle_count++;
+    }
+
+    // This code triggers instantly when the loop ends
+    printf("[SHUTDOWN] System halted immediately for safety.\n");
+    return 0;
+}
